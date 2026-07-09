@@ -2,17 +2,16 @@
 
 **Unidad III: Integración de componentes de software para aplicaciones WebProyecto integrador:** API de gestión de tareas con clima (Node.js + Express)
 
----
-
 ## Datos generales
 
-| Campo | Detalle |
-| --- | --- |
-| Duración | 2 horas (120 min) |
-| Tema curricular | Implementación de WEB services en el desarrollo WEB |
-| Saber hacer que cubre | Realizar la implementación de WEBservices propios en el desarrollo WEB |
-| Instrumento de evaluación | Lista de cotejo + prueba funcional con Postman |
-| Requisitos previos | Proyecto de la Sesión 1 funcionando, Postman o Thunder Client instalado |
+
+| Campo                      | Detalle                                                                  |
+| -------------------------- | ------------------------------------------------------------------------ |
+| Duración                  | 2 horas (120 min)                                                        |
+| Tema curricular            | Implementación de WEB services en el desarrollo WEB                     |
+| Saber hacer que cubre      | Realizar la implementación de WEBservices propios en el desarrollo WEB  |
+| Instrumento de evaluación | Lista de cotejo + prueba funcional con Postman                           |
+| Requisitos previos         | Proyecto de la Sesión 1 funcionando, Postman o Thunder Client instalado |
 
 ## Objetivo de la sesión
 
@@ -140,11 +139,12 @@ El único verbo que falta es `DELETE`. Pide al alumno:
 
 ## Entregable y lista de cotejo
 
-| Criterio | Cumple |
-| --- | --- |
-| Existen los 4 verbos: GET (lista y por id), POST, PUT, DELETE | ☐ |
-| Cada respuesta usa el código de estado HTTP correcto | ☐ |
-| Las entradas de usuario (POST/PUT) están validadas | ☐ |
-| El API corre sobre el servidor seguro de la Sesión 1 (HTTPS, Helmet) | ☐ |
-| Existe una colección de Postman o documentación Swagger del API | ☐ |
-| El alumno puede explicar la diferencia entre 200, 201, 400 y 404 | ☐ |
+
+| Criterio                                                              | Cumple |
+| --------------------------------------------------------------------- | ------ |
+| Existen los 4 verbos: GET (lista y por id), POST, PUT, DELETE         | ☐     |
+| Cada respuesta usa el código de estado HTTP correcto                 | ☐     |
+| Las entradas de usuario (POST/PUT) están validadas                   | ☐     |
+| El API corre sobre el servidor seguro de la Sesión 1 (HTTPS, Helmet) | ☐     |
+| Existe una colección de Postman o documentación Swagger del API     | ☐     |
+| El alumno puede explicar la diferencia entre 200, 201, 400 y 404      | ☐     |
