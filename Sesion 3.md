@@ -16,7 +16,7 @@
 
 Crear una cuenta gratuita en [**openweathermap.org**](https://openweathermap.org/api) y generar su API key desde la sección "API keys" de su cuenta.
 
-## 2. Objetivo de la sesión
+## Objetivo de la sesión
 
 Al finalizar, el alumno tendrá un endpoint que combina información de su web service propio (una tarea) con datos de un web service externo (el clima), incluyendo manejo de errores cuando el servicio externo falla.
 
@@ -120,14 +120,14 @@ Crear un endpoint **independiente** de las tareas, para practicar que el consumo
 3. Debe responder `502` con un mensaje claro si el servicio externo falla.
 4. Agregar esta nueva petición a la colección de Postman de la Sesión 2 y volver a exportarla.
 
-## 6. Entregable y lista de cotejo
+## Entregable y lista de cotejo
 
-| Criterio | Cumple |
-| --- | --- |
-| La API key del servicio de clima está en`.env`, nunca en el código | ☐ |
-| Existe el endpoint que combina tarea propia + clima externo | ☐ |
-| Existe el endpoint independiente`/api/clima/:ciudad`del reto | ☐ |
-| Ambos endpoints manejan errores del servicio externo con código 502 | ☐ |
-| Se usó`timeout`en las peticiones con axios | ☐ |
-| El alumno puede explicar la diferencia entre un error 404 y un error 502 | ☐ |
-| La colección de Postman está actualizada y exportada de nuevo | ☐ |
+| Criterio | Cumple |  |
+| --- | --- | --- |
+| La API key del servicio de clima está en`.env`, nunca en el código |  | ☐ |
+| Existe el endpoint que combina tarea propia + clima externo | ☐ |  |
+| Existe el endpoint independiente`/api/clima/:ciudad`del reto | ☐ |  |
+| Ambos endpoints manejan errores del servicio externo con código 502 | ☐ |  |
+| Se usó`timeout`en las peticiones con axios | ☐ |  |
+| El alumno puede explicar la diferencia entre un error 404 y un error 502 | ☐ |  |
+| La colección de Postman está actualizada y exportada de nuevo | ☐ |  |
