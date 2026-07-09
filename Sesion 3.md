@@ -1,27 +1,24 @@
 # Sesión 3 — Integración de APIs de Terceros
 
-**Unidad III: Integración de componentes de software para aplicaciones Web****Proyecto integrador:** API de gestión de tareas con clima (Node.js + Express)
+**Unidad III: Integración de componentes de software para aplicaciones Web\*\*\*\*Proyecto integrador:** API de gestión de tareas con clima (Node.js + Express)
 
 ## Datos generales
 
-
-| Campo                      | Detalle                                                         |
-| -------------------------- | --------------------------------------------------------------- |
-| Duración                  | 2 horas (120 min)                                               |
-| Tema curricular            | Implementación de WEB services en el desarrollo WEB            |
-| Saber hacer que cubre      | Realizar la integración de API's de terceros al desarrollo WEB |
-| Instrumento de evaluación | Lista de cotejo + prueba funcional con Postman                  |
-| Requisitos previos         | Proyecto de la Sesión 2 funcionando                            |
+| Campo | Detalle |
+| --- | --- |
+| Duración | 2 horas (120 min) |
+| Tema curricular | Implementación de WEB services en el desarrollo WEB |
+| Saber hacer que cubre | Realizar la integración de API's de terceros al desarrollo WEB |
+| Instrumento de evaluación | Lista de cotejo + prueba funcional con Postman |
+| Requisitos previos | Proyecto de la Sesión 2 funcionando |
 
 ## ⚠️ Preparación previa
 
-Cada alumno debe crear una cuenta gratuita en **[openweathermap.org](https://openweathermap.org/api)** y generar su API key desde la sección "API keys" de su cuenta.
-
+Crear una cuenta gratuita en [**openweathermap.org**](https://openweathermap.org/api) y generar su API key desde la sección "API keys" de su cuenta.
 
 ## 2. Objetivo de la sesión
 
 Al finalizar, el alumno tendrá un endpoint que combina información de su web service propio (una tarea) con datos de un web service externo (el clima), incluyendo manejo de errores cuando el servicio externo falla.
-
 
 ### Instalar axios y guardar la API key de forma segura
 
@@ -34,8 +31,6 @@ Agregar al `.env` (recordar: este archivo ya está en `.gitignore` desde la Sesi
 ```
 WEATHERAPI_KEY=tu_api_key_aqui
 ```
-
-Explicar: si la key se sube al repositorio, cualquiera puede usarla a nombre del alumno y agotar su cuota gratuita — es el mismo principio de codificación segura de la Sesión 1, aplicado a credenciales de terceros.
 
 ### Servicio para consumir el clima (`services/clima.js`)
 
@@ -72,9 +67,9 @@ async function obtenerClima(ciudad) {
 module.exports = { obtenerClima };
 ```
 
-* El `timeout: 5000` evita que nuestro servidor se quede colgado esperando indefinidamente a un tercero.
-* Distinguir dos tipos de falla: el servicio externo respondió con error (`error.response`) vs. nunca respondió (problema de red o timeout). Son escenarios distintos y conviene comunicarlos distinto.
-* Nunca dejamos "escapar" el error crudo de axios al cliente final; lo traducimos a un mensaje claro.
+- El `timeout: 5000` evita que nuestro servidor se quede colgado esperando indefinidamente a un tercero.
+- Distinguir dos tipos de falla: el servicio externo respondió con error (`error.response`) vs. nunca respondió (problema de red o timeout). Son escenarios distintos y conviene comunicarlos distinto.
+- Nunca dejamos "escapar" el error crudo de axios al cliente final; lo traducimos a un mensaje claro.
 
 ### Endpoint que combina tarea propia + clima externo (`routes/tareas.js`)
 
@@ -105,8 +100,8 @@ router.get('/:id/clima', param('id').isInt(), validar, async (req, res) => {
 
 Puntos a resaltar:
 
-* `404` significa "el recurso propio (la tarea) no existe" — es responsabilidad de nuestro servidor.
-* `502 Bad Gateway` significa "nuestro servidor funcionó bien, pero el servicio externo del que dependemos falló" — es una distinción importante que muchos desarrolladores nuevos no hacen.
+- `404` significa "el recurso propio (la tarea) no existe" — es responsabilidad de nuestro servidor.
+- `502 Bad Gateway` significa "nuestro servidor funcionó bien, pero el servicio externo del que dependemos falló" — es una distinción importante que muchos desarrolladores nuevos no hacen.
 
 ### Probar el camino feliz y el camino de error en vivo
 
@@ -127,13 +122,12 @@ Pide al alumno crear un endpoint **independiente** de las tareas, para practicar
 
 ## 6. Entregable y lista de cotejo
 
-
-| Criterio                                                                 | Cumple |
-| ------------------------------------------------------------------------ | ------ |
-| La API key del servicio de clima está en`.env`, nunca en el código     | ☐     |
-| Existe el endpoint que combina tarea propia + clima externo              | ☐     |
-| Existe el endpoint independiente`/api/clima/:ciudad`del reto             | ☐     |
-| Ambos endpoints manejan errores del servicio externo con código 502     | ☐     |
-| Se usó`timeout`en las peticiones con axios                              | ☐     |
-| El alumno puede explicar la diferencia entre un error 404 y un error 502 | ☐     |
-| La colección de Postman está actualizada y exportada de nuevo          | ☐     |
+| Criterio | Cumple |
+| --- | --- |
+| La API key del servicio de clima está en`.env`, nunca en el código | ☐ |
+| Existe el endpoint que combina tarea propia + clima externo | ☐ |
+| Existe el endpoint independiente`/api/clima/:ciudad`del reto | ☐ |
+| Ambos endpoints manejan errores del servicio externo con código 502 | ☐ |
+| Se usó`timeout`en las peticiones con axios | ☐ |
+| El alumno puede explicar la diferencia entre un error 404 y un error 502 | ☐ |
+| La colección de Postman está actualizada y exportada de nuevo | ☐ |
