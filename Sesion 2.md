@@ -131,7 +131,7 @@ app.use('/api/tareas', tareasRouter);
 
 ## Reto de la sesión (actividad guiada del alumno)
 
-El único verbo que falta es `DELETE`. Pide al alumno:
+El único verbo que falta es `DELETE`:
 
 1. Agregar la ruta `DELETE /api/tareas/:id` en `routes/tareas.js`, usando `tareasModel.eliminar`.
 2. Debe responder `204` (sin contenido) si se eliminó correctamente, o `404` si el id no existe.
