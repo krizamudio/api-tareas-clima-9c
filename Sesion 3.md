@@ -113,7 +113,7 @@ En Postman, probar:
 
 ## Reto de la sesión (actividad guiada del alumno)
 
-Pide al alumno crear un endpoint **independiente** de las tareas, para practicar que el consumo de un servicio externo puede ser un módulo reutilizable:
+Crear un endpoint **independiente** de las tareas, para practicar que el consumo de un servicio externo puede ser un módulo reutilizable:
 
 1. Crear `GET /api/clima/:ciudad` (fuera de `routes/tareas.js`, en un nuevo archivo `routes/clima.js`) que solo devuelva el clima de la ciudad indicada en la URL, sin relacionarlo con ninguna tarea.
 2. Debe responder `400` si el parámetro `ciudad` está vacío o tiene caracteres inválidos (usar `express-validator`).
