@@ -4,11 +4,14 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const { body, validationResult } = require('express-validator');
 
+
+
 const app = express();
 
 app.use(helmet());              // cabeceras de seguridad HTTP
 app.use(express.json());        // parseo seguro de JSON
-app.use(morgan('dev'));         // bitácora de peticiones
+
+
 
 // Ruta de prueba con validación de entrada
 app.post(
@@ -42,5 +45,8 @@ app.get('/api/salud', (req, res) => {
 
 const tareasRouter = require('./routes/tareas');
 app.use('/api/tareas', tareasRouter);
+
+const climaRoutes = require('./routes/clima');
+app.use('/api/clima', climaRoutes);
 
 module.exports = app;
