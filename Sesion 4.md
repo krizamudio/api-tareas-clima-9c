@@ -155,14 +155,18 @@ Punto clave: el middleware `verificarToken` se ejecuta **antes** de llegar a cua
 ### Probar el flujo completo en Postman
 
 1. `POST {{baseUrl}}/auth/registro` con `{ "correo": "alumno@demo.com", "password": "123456" }` → 201.
+
 2. `POST {{baseUrl}}/auth/login` con las mismas credenciales → 200 con el `token`.
-3. Copiar el token. En la pestaña **Tests** de esta petición, agregar para automatizarlo: 
+
+3. Copiar el token. En la pestaña **Tests** de esta petición, agregar para automatizarlo:
 
    ```javascript
    pm.environment.set("token", pm.response.json().token);
    
    ```
+
 4. En las peticiones de tareas y clima, ir a la pestaña **Authorization** → tipo **Bearer Token** → valor `{{token}}`.
+
 5. Probar `GET {{baseUrl}}/tareas` **sin** token primero (debe dar 401) y luego **con** token (debe dar 200) — mostrar ambos casos en pantalla.
 
 ## Reto de la sesión (actividad guiada del alumno)
