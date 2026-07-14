@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body, param, validationResult } = require('express-validator');
 const tareasModel = require('../models/tareas');
+const { obtenerClima } = require('../services/clima');
 
 function validar(req, res, next) {
   const errores = validationResult(req);
@@ -57,5 +58,20 @@ router.delete(
     res.status(204).send();
   }
 );
+
+// GET /api/tareas/:id/clima?ciudad=Toluca — combina la tarea con el clima de una ciudad
+router.get('/:id/clima', param('id').isInt(), validar, async (req, res) => {
+  const tarea = tareasModel.obtenerPorId(Number(req.params.id));
+  if (!tarea) return res.status(404).json({ error: 'Tarea no encontrada' });
+
+  const ciudad = req.query.ciudad || 'Ciudad de Mexico';
+
+  try {
+    const clima = await obtenerClima(ciudad);
+    res.status(200).json({ tarea, clima });
+  } catch (error) {
+    res.status(502).json({ error: error.message });
+  }
+});
 
 module.exports = router;
